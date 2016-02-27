@@ -1,0 +1,3 @@
+const reducers = combineReducers({
+  counter
+});
