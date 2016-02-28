@@ -12,11 +12,10 @@ const style = {
   marginTop: 5
 };
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
   }
-
 
   render() {
     return (
@@ -32,4 +31,3 @@ class App extends Component {
   }
 }
 
-export default connect()(App);

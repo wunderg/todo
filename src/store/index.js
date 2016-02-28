@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-import counter from '../reducers/counter';
+import todos from '../reducers/todos';
 
 const logger = createLogger();
 
 const rootReducer = combineReducers({
-  counter
+  todos
 });
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware,
