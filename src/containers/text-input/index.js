@@ -13,11 +13,13 @@ class TextInput extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="">
         <TextField
           floatingLabelText="Type in Here"
           onChange={this.handleChange}
+          value={this.state.text}
         />
         <FlatButton onClick={this.handleSubmit} label="Add Todo" primary={true} />
       </div>
@@ -29,8 +31,8 @@ class TextInput extends Component {
   }
 
   handleSubmit(e) {
-    this.props.addTodo(this.state.text);
     this.setState({text: ''});
+    this.props.addTodo(this.state.text);
   }
 }
 
