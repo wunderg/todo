@@ -4,11 +4,13 @@
   "description": "Simple todo app",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server/server.js",
-    "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "start": "node ./dist/server.js",
+    "start-dev": "babel-node ./server/server.js",
+    "build-client": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "build-server": "babel -d ./dist ./server -s",
     "lint": "eslint src; exit 0",
     "clean": "rimraf dist",
-    "postinstall": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
+    "postinstall": "npm run clean && npm run build-client && npm run build-server"
   },
   "engines": {
     "node": "5.7.0"
