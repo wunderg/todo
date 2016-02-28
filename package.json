@@ -1,11 +1,10 @@
 {
-  "name": "react-redux-starter",
+  "name": "TodoX",
   "version": "1.0.0",
-  "description": "React-Redux-Boilerplate",
+  "description": "Simple todo app",
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./server/server.js",
-    "start2": "babel-node ./server/server2.js",
     "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "lint": "eslint src; exit 0",
     "clean": "rimraf dist",
