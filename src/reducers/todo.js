@@ -1,5 +1,5 @@
 export default (state, action)  => {
-  console.log('state', state, 'action', action);
+  // console.log('state', state, 'action', action);
   switch (action.type) {
     case 'ADD_TODO':
       return {

@@ -22,7 +22,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this);
     return (
       <div className="wrap container-fluid">
         <div className="row around-xs">

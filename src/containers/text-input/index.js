@@ -13,7 +13,6 @@ class TextInput extends Component {
   }
 
   render() {
-    console.log(this);
     return (
       <div className="">
         <TextField
