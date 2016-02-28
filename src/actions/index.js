@@ -1,23 +1,11 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+export const ADD_TODO = 'ADD_TODO';
 
-export function increment(number) {
+let nextId = 4;
+export function addTodo(text) {
+  console.log(text);
   return {
-    type: INCREMENT,
-    payload: number
-  };
-}
-
-export function decrement(number) {
-  return {
-    type: DECREMENT,
-    payload: number
-  };
-}
-
-export function reset() {
-  return {
-    type: RESET,
+    type: ADD_TODO,
+    id: nextId++,
+    text: text
   }
 }

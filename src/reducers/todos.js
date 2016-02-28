@@ -1,18 +1,31 @@
-import { INCREMENT, DECREMENT, RESET } from '../actions';
+import { ADD_TODO } from '../actions';
+import todo from './todo';
 
-const INITIAL_STATE = {
-  count: 0
-};
+const INITIAL_STATE = [
+  {
+    id : 1,
+    text: 'Hello',
+    completed: false
+  },
+  {
+    id : 2,
+    text: 'Awesome',
+    completed: true
+  },
+  {
+    id : 3,
+    text: 'Bye',
+    completed: false
+  }
+];
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(todo(undefined, action));
   switch(action.type) {
-    case INCREMENT:
-      return {...state, count: action.payload + 1}
-    case DECREMENT:
-      return {...state, count: action.payload - 1}
-    case RESET:
-      return {...state, count: 0}
+    case ADD_TODO:
+      return [...state, todo(undefined, action)]
     default:
       return state
   }
 }
+
