@@ -8,8 +8,8 @@ export default (state, action)  => {
       completed: false
     }
     case 'TOGGLE_TODO':
-     return state.id === action.id ? {...state, completed: !state.completed} : state
+     return state.id === action.id ? {...state, completed: !state.completed} : state;
     default:
-      return state
+      return state;
   }
 }

@@ -51,5 +51,8 @@ module.exports = {
         query: { limit: 10240 }
       }
     ]
+  },
+  stats: {
+    colors: true
   }
 };

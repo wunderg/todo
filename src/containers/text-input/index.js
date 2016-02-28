@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/lib/text-field';
 import FlatButton from 'material-ui/lib/flat-button';
 
 class TextInput extends Component {
   constructor(props) {
-   super(props);
-   this.state = {
-     text: this.props.text || ''
-   };
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSubmit = this.handleSubmit.bind(this);
+    super(props);
+    this.state = {
+      text: this.props.text || ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+  }
+
+  handleSubmit() {
+    this.setState({ text: '' });
+    this.props.addTodo(this.state.text);
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="">
         <TextField
@@ -26,14 +35,11 @@ class TextInput extends Component {
     );
   }
 
-  handleChange(e) {
-    this.setState({ text: e.target.value})
-  }
-
-  handleSubmit(e) {
-    this.setState({text: ''});
-    this.props.addTodo(this.state.text);
-  }
 }
+
+TextInput.propTypes = {
+  text: PropTypes.string,
+  addTodo: PropTypes.func
+};
 
 export default TextInput;

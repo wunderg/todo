@@ -4,7 +4,7 @@
   "description": "React-Redux-Boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "babel-node ./server/server.js",
     "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "lint": "eslint src; exit 0",
     "clean": "rimraf dist",

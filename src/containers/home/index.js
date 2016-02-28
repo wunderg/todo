@@ -1,20 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { connect,  } from 'react-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addTodo, toggleTodo } from '../../actions';
 
 import Todos from '../todos/todos-list';
 import TextInput from '../text-input';
 
-import FlatButton from 'material-ui/lib/flat-button';
-import Colors from 'material-ui/lib/styles/colors';
-import storeConfig from '../../store';
+// import Colors from 'material-ui/lib/styles/colors';
 
-const style = {
-  margin: 12,
-  paddingTop: 10,
-  color: Colors.blue200
-};
+// const style = {
+//   margin: 12,
+//   paddingTop: 10,
+//   color: Colors.blue200
+// };
 
 class Home extends Component {
   constructor(props) {
@@ -51,7 +49,13 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addTodo, toggleTodo}, dispatch)
+  return bindActionCreators({ addTodo, toggleTodo }, dispatch);
 }
+
+Home.propTypes = {
+  addTodo: PropTypes.func,
+  toggleTodo: PropTypes.func,
+  todos: PropTypes.array
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
