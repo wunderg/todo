@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./server/server.js",
+    "start2": "babel-node ./server/server2.js",
     "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "lint": "eslint src; exit 0",
     "clean": "rimraf dist",
@@ -27,8 +28,10 @@
     "body-parser": "^1.14.1",
     "classnames": "^2.2.3",
     "express": "^4.13.3",
+    "express-cors": "0.0.3",
     "flexboxgrid": "^6.3.0",
     "font-awesome": "^4.5.0",
+    "http-proxy-middleware": "^0.11.0",
     "material-ui": "^0.14.4",
     "progress-bar-webpack-plugin": "^1.4.1",
     "react": "^0.14.7",
@@ -38,7 +41,8 @@
     "react-tap-event-plugin": "^0.2.2",
     "redux": "^3.3.1",
     "redux-logger": "^2.5.2",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",

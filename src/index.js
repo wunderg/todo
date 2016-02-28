@@ -19,6 +19,7 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
       </Route>
+      <Route path="*" component={App} />
     </Router>
   </Provider>,
   document.getElementById('root')

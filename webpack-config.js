@@ -7,7 +7,9 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'babel-polyfill',
-    'webpack-hot-middleware/client?reload=true',
+    'webpack-dev-server/client?http://localhost:3001',
+    'webpack/hot/dev-server',
+    'webpack/hot/only-dev-server',
     './src/index'
   ],
   output: {
@@ -51,6 +53,14 @@ module.exports = {
         query: { limit: 10240 }
       }
     ]
+  },
+  devServer: {
+    contentBase: './dist/',
+    port: 3000,
+    inline: true,
+    historyApiFallback: true,
+    colors: true,
+    stats: 'normal'
   },
   stats: {
     colors: true
