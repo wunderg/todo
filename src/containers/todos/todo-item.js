@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ListItem from 'material-ui/lib/lists/list-item';
+import Checkbox from 'material-ui/lib/checkbox';
 
 export default class Todo extends Component {
   constructor(props) {
@@ -6,15 +8,17 @@ export default class Todo extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  render() {
+    return (
+      <ListItem
+        onClick={this.onClick}
+        primaryText={this.props.item.text}
+        leftCheckbox={<Checkbox checked={this.props.item.completed}/>} />
+    );
+  }
+
   onClick() {
     this.props.toggle(this.props.item.id);
   }
 
-  render() {
-    return (
-      <li onClick={this.onClick}>
-        {this.props.item.text}
-      </li>
-    );
-  }
 }
