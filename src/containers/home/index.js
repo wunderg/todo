@@ -25,14 +25,14 @@ class Home extends Component {
     return (
       <div className="wrap container-fluid">
         <div className="row around-xs">
-          <div className="col-xs-3 center-xs">
+          <div className="col-xs-9 center-xs">
             <div className="box">
               <TextInput addTodo={this.props.addTodo}/>
             </div>
           </div>
         </div>
         <div className="row around-xs">
-          <div className="col-xs-3 center-xs">
+          <div className="col-xs-5">
             <div className="box">
               <Todos todos={this.props.todos} toggle={this.props.toggleTodo} />
             </div>

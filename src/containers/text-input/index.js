@@ -16,11 +16,10 @@ class TextInput extends Component {
     return (
       <div className="">
         <TextField
-          hintText="Hint Text"
-          floatingLabelText="Floating Label Text"
+          floatingLabelText="Type in Here"
           onChange={this.handleChange}
         />
-        <FlatButton onClick={this.handleSubmit} label="Primary" primary={true} />
+        <FlatButton onClick={this.handleSubmit} label="Add Todo" primary={true} />
       </div>
     );
   }
