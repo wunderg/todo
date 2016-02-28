@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 import todo from './todo';
 
 const INITIAL_STATE = [
@@ -20,10 +20,11 @@ const INITIAL_STATE = [
 ];
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(todo(undefined, action));
   switch(action.type) {
     case ADD_TODO:
-      return [...state, todo(undefined, action)]
+      return [...state, todo(undefined, action)];
+    case TOGGLE_TODO:
+      return state.map(item => todo(item, action));
     default:
       return state
   }

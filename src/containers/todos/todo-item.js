@@ -7,7 +7,8 @@ export default class Todo extends Component {
   }
 
   onClick() {
-    this.props.onItemClick(this.props.item);
+    console.log(this);
+    this.props.toggle(this.props.item.id);
   }
 
   render() {

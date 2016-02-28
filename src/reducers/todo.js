@@ -1,5 +1,5 @@
 export default (state, action)  => {
-  console.log(action);
+  console.log('state', state, 'action', action);
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -7,6 +7,8 @@ export default (state, action)  => {
       text: action.text,
       completed: false
     }
+    case 'TOGGLE_TODO':
+     return state.id === action.id ? {...state, completed: !state.completed} : state
     default:
       return state
   }

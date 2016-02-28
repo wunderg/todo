@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect,  } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo } from '../../actions';
+import { addTodo, toggleTodo } from '../../actions';
 
 import Todos from '../todos/todos-list';
 import TextInput from '../text-input';
@@ -22,6 +22,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this);
     return (
       <div className="wrap container-fluid">
         <div className="row around-xs">
@@ -34,7 +35,7 @@ class Home extends Component {
         <div className="row around-xs">
           <div className="col-xs-3 center-xs">
             <div className="box">
-              <Todos todos={this.props.todos} />
+              <Todos todos={this.props.todos} toggle={this.props.toggleTodo} />
             </div>
           </div>
         </div>
@@ -51,7 +52,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addTodo}, dispatch)
+  return bindActionCreators({addTodo, toggleTodo}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
