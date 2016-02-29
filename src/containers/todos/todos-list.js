@@ -15,7 +15,7 @@ class Todos extends Component {
     return (
       <List subheader="TODO LIST" zDepth={1} style={style}>
         {this.props.todos.map(item =>
-          <Todo key={item.id} item={item} toggle={this.props.toggle} />
+          <Todo key={item._id} item={item} toggle={this.props.toggle} />
         )}
       </List>
     );

@@ -1,14 +1,16 @@
 export default (state, action)  => {
-  // console.log('state', state, 'action', action);
   switch (action.type) {
     case 'ADD_TODO':
+      console.log(action);
       return {
-      id: action.id,
+      _id: action._id,
       text: action.text,
       completed: false
     }
     case 'TOGGLE_TODO':
-     return state.id === action.id ? {...state, completed: !state.completed} : state;
+     return state._id === action._id ? {...state, completed: !state.completed} : state;
+    case 'FETCH_TODOS':
+      return action.payload.data;
     default:
       return state;
   }

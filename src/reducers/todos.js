@@ -8,7 +8,7 @@ export default (state = [], action) => {
     case TOGGLE_TODO:
       return state.map(item => todo(item, action));
     case FETCH_TODOS:
-      return [...state, action.payload.data[0]];
+      return todo(undefined, action);
     default:
       return state;
   }

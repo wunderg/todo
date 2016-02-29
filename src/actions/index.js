@@ -3,27 +3,36 @@ import axios from 'axios';
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const FETCH_TODOS = 'FETCH_TODOS';
+export const POST_TODO = 'POST_TODO';
 
-let nextId = 4;
+const nextId = Math.floor(Math.random() * 100);
 export function addTodo(text) {
   return {
     type: ADD_TODO,
-    id: nextId++,
+    _id: nextId,
     text
   };
 }
 
-export function toggleTodo(id) {
+export function toggleTodo(_id) {
   return {
     type: TOGGLE_TODO,
-    id
+    _id
   };
 }
 
 export function fetchTodos() {
-  const request = axios.get('api/task');
+  const request = axios.get(`api/task`);
   return {
     type: FETCH_TODOS,
+    payload: request
+  };
+}
+
+export function postTodo(todo) {
+  const request = axios.post(`api/task/`, todo);
+  return {
+    type: POST_TODO,
     payload: request
   };
 }

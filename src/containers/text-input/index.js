@@ -17,9 +17,13 @@ class TextInput extends Component {
     this.setState({ text: e.target.value });
   }
 
-  handleSubmit() {
-    this.setState({ text: '' });
+  handleSubmit(e) {
+    console.log('click submit');
+    // e.preventDefault();
+    // e.stopPropagation();
     this.props.addTodo(this.state.text);
+    this.setState({ text: '' });
+    this.props.postTodo({ text: this.state.text, completed: false });
   }
 
   render() {
@@ -34,12 +38,12 @@ class TextInput extends Component {
       </div>
     );
   }
-
 }
 
 TextInput.propTypes = {
   text: PropTypes.string,
-  addTodo: PropTypes.func
+  addTodo: PropTypes.func,
+  postTodo: PropTypes.func
 };
 
 export default TextInput;

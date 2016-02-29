@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo, toggleTodo, fetchTodos } from '../../actions';
+import { addTodo, toggleTodo, fetchTodos, postTodo } from '../../actions';
 
-import Todos from '../todos/todos-list';
+import TodoList from '../todos/todos-list';
 import TextInput from '../text-input';
 
 // import Colors from 'material-ui/lib/styles/colors';
@@ -20,7 +20,6 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    console.log(this);
     this.props.fetchTodos();
   }
 
@@ -30,14 +29,14 @@ class Home extends Component {
         <div className="row around-xs">
           <div className="col-xs-9 center-xs">
             <div className="box">
-              <TextInput addTodo={this.props.addTodo}/>
+              <TextInput addTodo={this.props.addTodo} postTodo={this.props.postTodo}/>
             </div>
           </div>
         </div>
         <div className="row around-xs">
           <div className="col-xs-5">
             <div className="box">
-              <Todos todos={this.props.todos} toggle={this.props.toggleTodo} />
+              <TodoList todos={this.props.todos} toggle={this.props.toggleTodo} />
             </div>
           </div>
         </div>
@@ -54,13 +53,15 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addTodo, toggleTodo, fetchTodos }, dispatch);
+  return bindActionCreators({ addTodo, toggleTodo, fetchTodos, postTodo }, dispatch);
 }
 
 Home.propTypes = {
   addTodo: PropTypes.func,
   toggleTodo: PropTypes.func,
-  todos: PropTypes.array
+  todos: PropTypes.array,
+  postTodo: PropTypes.func,
+  fetchTodos: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

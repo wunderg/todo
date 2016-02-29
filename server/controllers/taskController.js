@@ -9,14 +9,15 @@ export default {
   },
 
   post(req, res) {
-    const { id, text, completed } = req.body;
+    const { _id, text, completed } = req.body;
+    console.log(req.body);
 
     new Task({
-      id,
       text,
       completed
     })
     .save()
-    .then(result => res.json(result));
+    .then(result => res.json(result))
+    .catch(err => res.json(err));
   }
 };
