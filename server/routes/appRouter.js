@@ -1,5 +1,5 @@
 module.exports = (app, express, staticPath) => {
-  var appRouter = express.Router();
+  var appRouter = new express.Router();
 
   app.use('/', appRouter);
 
