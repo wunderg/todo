@@ -6,8 +6,8 @@ var chalk = require('chalk');
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-    'babel-polyfill',
     'webpack-dev-server/client?http://localhost:3001',
+    'babel-polyfill',
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
     './src/index'
@@ -53,14 +53,6 @@ module.exports = {
         query: { limit: 10240 }
       }
     ]
-  },
-  devServer: {
-    contentBase: './dist/',
-    port: 3000,
-    inline: true,
-    historyApiFallback: true,
-    colors: true,
-    stats: 'normal'
   },
   stats: {
     colors: true

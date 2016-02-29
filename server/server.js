@@ -5,6 +5,9 @@ import WebpackDevServer from 'webpack-dev-server';
 import bodyParser from 'body-parser';
 import webpackConfig from '../webpack-config.js';
 
+import appRouter from './routes/appRouter';
+import apiRouter from './routes/apiRouter';
+
 const isProduction = process.env.NODE_ENV === 'production';
 const isDeveloping = !isProduction;
 const port = isProduction ? (process.env.PORT || 80) : 3000;
@@ -15,19 +18,17 @@ const staticPath = path.join(__dirname, '../');
 
 app.use(bodyParser());
 
-app.use(express.static(staticPath));
+appRouter(app, express, staticPath);
+apiRouter(app, express);
 
-app.get('*', (req, res) => {
-  res.sendFile('index.html', {
-    root: staticPath
-  });
-});
+app.use(express.static(staticPath));
 
 app.listen(port, err => {
   if (err) {
     console.log(err);
   }
-  console.log('Server at 3001');
+
+  console.log('Server at 3000');
 });
 
 if (isDeveloping) {
@@ -35,13 +36,16 @@ if (isDeveloping) {
     publicPath: webpackConfig.output.publicPath,
     inline: true,
     hot: true,
-    quiet: false,
+    quiet: true,
     noInfo: false,
     stats: { colors: true },
-    proxy: [{
-      path: /\api(.*)/,
-      target: 'http://localhost: 3000'
-    }]
+    proxy: [
+    {
+      path: '*',
+      target: 'http://localhost:3000',
+      ws: true,
+    }
+    ]
   });
 
   devServer.listen(3001, 'localhost', err => {
