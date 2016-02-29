@@ -29,14 +29,21 @@ class Home extends Component {
         <div className="row around-xs">
           <div className="col-xs-9 center-xs">
             <div className="box">
-              <TextInput addTodo={this.props.addTodo} postTodo={this.props.postTodo}/>
+              <TextInput
+                addTodo={this.props.addTodo}
+                postTodo={this.props.postTodo}
+              />
             </div>
           </div>
         </div>
         <div className="row around-xs">
           <div className="col-xs-5">
             <div className="box">
-              <TodoList todos={this.props.todos} toggle={this.props.toggleTodo} />
+              <TodoList
+                todos={this.props.todos}
+                postTodo={this.props.postTodo}
+                toggle={this.props.toggleTodo}
+              />
             </div>
           </div>
         </div>

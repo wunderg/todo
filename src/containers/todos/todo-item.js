@@ -11,6 +11,13 @@ class Todo extends Component {
   onClick(e) {
     e.preventDefault();
     this.props.toggle(this.props.item._id);
+    this.props.postTodo({ _id: this.props.item._id })
+    .then(result => {
+      console.log(result.payload.statusText);
+      if (result.payload.statusText !== 'OK') {
+        this.props.toggle(this.props.item._id);
+      }
+    });
   }
 
   render() {
@@ -24,13 +31,13 @@ class Todo extends Component {
     );
   }
 
-
 }
 
 Todo.propTypes = {
   toggle: PropTypes.func,
   text: PropTypes.string,
-  item: PropTypes.object
+  item: PropTypes.object,
+  postTodo: PropTypes.func
 };
 
 export default Todo;

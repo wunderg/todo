@@ -15,7 +15,12 @@ class Todos extends Component {
     return (
       <List subheader="TODO LIST" zDepth={1} style={style}>
         {this.props.todos.map(item =>
-          <Todo key={item._id} item={item} toggle={this.props.toggle} />
+        <Todo
+          key={item._id}
+          item={item}
+          toggle={this.props.toggle}
+          postTodo={this.props.postTodo}
+        />
         )}
       </List>
     );
@@ -24,7 +29,8 @@ class Todos extends Component {
 
 Todos.propTypes = {
   todos: PropTypes.array,
-  toggle: PropTypes.func
+  toggle: PropTypes.func,
+  postTodo: PropTypes.func
 };
 
 export default Todos;

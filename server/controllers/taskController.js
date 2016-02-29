@@ -10,14 +10,24 @@ export default {
 
   post(req, res) {
     const { _id, text, completed } = req.body;
-    console.log(req.body);
 
-    new Task({
-      text,
-      completed
-    })
-    .save()
-    .then(result => res.json(result))
-    .catch(err => res.json(err));
+    if (_id) {
+      Task
+      .findById(_id)
+      .then(result => {
+        result.completed = !result.completed;
+        result.save();
+        res.json(result);
+      })
+      .catch(err => res.json(err));
+    } else {
+      new Task({
+        text,
+        completed
+      })
+      .save()
+      .then(result => res.json(result))
+      .catch(err => res.json(err));
+    }
   }
 };

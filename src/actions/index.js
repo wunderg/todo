@@ -6,6 +6,7 @@ export const FETCH_TODOS = 'FETCH_TODOS';
 export const POST_TODO = 'POST_TODO';
 
 const nextId = Math.floor(Math.random() * 100);
+
 export function addTodo(text) {
   return {
     type: ADD_TODO,
