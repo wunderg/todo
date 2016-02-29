@@ -17,10 +17,7 @@ class TextInput extends Component {
     this.setState({ text: e.target.value });
   }
 
-  handleSubmit(e) {
-    console.log('click submit');
-    // e.preventDefault();
-    // e.stopPropagation();
+  handleSubmit() {
     this.props.addTodo(this.state.text);
     this.setState({ text: '' });
     this.props.postTodo({ text: this.state.text, completed: false });

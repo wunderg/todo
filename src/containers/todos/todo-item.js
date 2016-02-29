@@ -10,7 +10,6 @@ class Todo extends Component {
 
   onClick(e) {
     e.preventDefault();
-    console.log('click toggle');
     this.props.toggle(this.props.item._id);
   }
 
