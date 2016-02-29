@@ -13,7 +13,6 @@ class Todo extends Component {
     this.props.toggle(this.props.item._id);
     this.props.postTodo({ _id: this.props.item._id })
     .then(result => {
-      console.log(result.payload.statusText);
       if (result.payload.statusText !== 'OK') {
         this.props.toggle(this.props.item._id);
       }

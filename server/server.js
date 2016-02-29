@@ -32,7 +32,7 @@ app.listen(port, err => {
     console.log(err);
   }
 
-  console.log('Server at 3000');
+  console.log(`Server is listeinig on ${port}`);
 });
 
 if (isDeveloping) {
