@@ -3,8 +3,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory, useRouterHistory, Redirect } from 'react-router';
-import { createHashHistory } from 'history';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import storeConfig from './store';
 
@@ -13,7 +12,6 @@ import Home from './containers/home';
 import About from './containers/about';
 
 
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false});
 const store = storeConfig();
 
 render(
