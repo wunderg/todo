@@ -1,30 +1,14 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, FETCH_TODOS } from '../actions';
 import todo from './todo';
 
-const INITIAL_STATE = [
-  {
-    id: 1,
-    text: 'Hello',
-    completed: false
-  },
-  {
-    id: 2,
-    text: 'Awesome',
-    completed: true
-  },
-  {
-    id: 3,
-    text: 'Bye',
-    completed: false
-  }
-];
-
-export default (state = INITIAL_STATE, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, todo(undefined, action)];
     case TOGGLE_TODO:
       return state.map(item => todo(item, action));
+    case FETCH_TODOS:
+      return [...state, action.payload.data[0]];
     default:
       return state;
   }

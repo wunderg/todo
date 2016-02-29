@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo, toggleTodo } from '../../actions';
+import { addTodo, toggleTodo, fetchTodos } from '../../actions';
 
 import Todos from '../todos/todos-list';
 import TextInput from '../text-input';
@@ -17,6 +17,11 @@ import TextInput from '../text-input';
 class Home extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    console.log(this);
+    this.props.fetchTodos();
   }
 
   render() {
@@ -49,7 +54,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addTodo, toggleTodo }, dispatch);
+  return bindActionCreators({ addTodo, toggleTodo, fetchTodos }, dispatch);
 }
 
 Home.propTypes = {
