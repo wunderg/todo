@@ -18,7 +18,7 @@ class Todos extends Component {
     return (
       <div className="">
         <List subheader="TODO LIST" zDepth={1} style={style}>
-          {this.props.todos.map(item =>
+          {this.props.visible.todos.map(item =>
           <Todo
             key={item._id}
             item={item}
@@ -29,7 +29,7 @@ class Todos extends Component {
           )}
         </List>
         <div className="col-xs-offset-2 col-xs-8 around-xs">
-          <Toggles />
+          <Toggles visible={this.props.visible} />
         </div>
       </div>
     );
@@ -37,10 +37,11 @@ class Todos extends Component {
 }
 
 Todos.propTypes = {
-  todos: PropTypes.array,
+  todos: PropTypes.arrayOf(PropTypes.object),
   toggle: PropTypes.func,
   postTodo: PropTypes.func,
-  delete: PropTypes.func
+  delete: PropTypes.func,
+  visible: PropTypes.object
 };
 
 export default Todos;
