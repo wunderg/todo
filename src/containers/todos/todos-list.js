@@ -20,6 +20,7 @@ class Todos extends Component {
           item={item}
           toggle={this.props.toggle}
           postTodo={this.props.postTodo}
+          delete={this.props.delete}
         />
         )}
       </List>
@@ -30,7 +31,8 @@ class Todos extends Component {
 Todos.propTypes = {
   todos: PropTypes.array,
   toggle: PropTypes.func,
-  postTodo: PropTypes.func
+  postTodo: PropTypes.func,
+  delete: PropTypes.func
 };
 
 export default Todos;

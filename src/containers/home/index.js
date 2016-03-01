@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo, toggleTodo, fetchTodos, postTodo } from '../../actions';
+import { addTodo, toggleTodo, fetchTodos, postTodo, deleteTodo } from '../../actions';
 
 import TodoList from '../todos/todos-list';
 import TextInput from '../text-input';
@@ -43,6 +43,7 @@ class Home extends Component {
                 todos={this.props.todos}
                 postTodo={this.props.postTodo}
                 toggle={this.props.toggleTodo}
+                delete={this.props.deleteTodo}
               />
             </div>
           </div>
@@ -60,7 +61,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addTodo, toggleTodo, fetchTodos, postTodo }, dispatch);
+  return bindActionCreators({ addTodo, toggleTodo, fetchTodos, postTodo, deleteTodo }, dispatch);
 }
 
 Home.propTypes = {
@@ -68,7 +69,8 @@ Home.propTypes = {
   toggleTodo: PropTypes.func,
   todos: PropTypes.array,
   postTodo: PropTypes.func,
-  fetchTodos: PropTypes.func
+  fetchTodos: PropTypes.func,
+  deleteTodo: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

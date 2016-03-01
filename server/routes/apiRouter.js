@@ -7,4 +7,5 @@ module.exports = (app, express) => {
 
   apiRouter.get('/task', taskController.get);
   apiRouter.post('/task', taskController.post);
+  apiRouter.delete('/task/:id', taskController.delete);
 };

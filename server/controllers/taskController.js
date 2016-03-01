@@ -29,5 +29,16 @@ export default {
       .then(result => res.json(result))
       .catch(err => res.json(err));
     }
+  },
+
+  delete(req, res) {
+    Task
+    .findById(req.params.id)
+    .then(result => {
+      console.log(result);
+      result.remove();
+      res.json({ removed: true });
+    })
+    .catch(err => console.log(err));
   }
 };
