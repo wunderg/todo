@@ -35,10 +35,9 @@ export default {
     Task
     .findById(req.params.id)
     .then(result => {
-      console.log(result);
       result.remove();
       res.json({ removed: true });
     })
-    .catch(err => console.log(err));
+    .catch(err => res.json(err));
   }
 };
