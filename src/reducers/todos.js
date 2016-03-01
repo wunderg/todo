@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, FETCH_TODOS, DELETE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, FETCH_TODOS, DELETE_TODO } from '../actions/constants';
 import todo from './todo';
 
 export default (state = [], action) => {

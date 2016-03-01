@@ -9,7 +9,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3001',
     'babel-polyfill',
     'webpack/hot/dev-server',
-    'webpack/hot/only-dev-server',
+    // 'webpack/hot/only-dev-server',
     './src/index'
   ],
   output: {

@@ -4,18 +4,18 @@ import Checkbox from 'material-ui/lib/checkbox';
 import Colors from 'material-ui/lib/styles/colors';
 
 const style = {
-  color: Colors.red500,
+  color: Colors.red200,
   top: 5
 };
 
 class Todo extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
+    this.complete = this.complete.bind(this);
     this.delete = this.delete.bind(this);
   }
 
-  toggle(e) {
+  complete(e) {
     e.preventDefault();
     e.stopPropagation();
     this.props.toggle(this.props.item._id);
@@ -39,7 +39,7 @@ class Todo extends Component {
         primaryText={this.props.item.text}
         rightIcon={<i className="fa fa-close fa-lg" style={style} onClick={this.delete}></i>}
         leftCheckbox={
-        <Checkbox onClick={this.toggle} checked={this.props.item.completed} />}
+        <Checkbox onClick={this.complete} checked={this.props.item.completed} />}
       />
       </div>
     );

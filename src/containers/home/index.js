@@ -41,6 +41,7 @@ class Home extends Component {
             <div className="box">
               <TodoList
                 todos={this.props.todos}
+                visible={this.props.visible}
                 postTodo={this.props.postTodo}
                 toggle={this.props.toggleTodo}
                 delete={this.props.deleteTodo}
@@ -57,7 +58,10 @@ Home.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return { todos: state.todos };
+  return {
+    todos: state.todos,
+    visible: state.visible
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -70,7 +74,8 @@ Home.propTypes = {
   todos: PropTypes.array,
   postTodo: PropTypes.func,
   fetchTodos: PropTypes.func,
-  deleteTodo: PropTypes.func
+  deleteTodo: PropTypes.func,
+  visible: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

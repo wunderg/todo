@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+
 import Todo from './todo-item';
+import Toggles from './toggles';
+
 import List from 'material-ui/lib/lists/list';
 
 const style = {
@@ -13,17 +16,22 @@ class Todos extends Component {
 
   render() {
     return (
-      <List subheader="TODO LIST" zDepth={1} style={style}>
-        {this.props.todos.map(item =>
-        <Todo
-          key={item._id}
-          item={item}
-          toggle={this.props.toggle}
-          postTodo={this.props.postTodo}
-          delete={this.props.delete}
-        />
-        )}
-      </List>
+      <div className="">
+        <List subheader="TODO LIST" zDepth={1} style={style}>
+          {this.props.todos.map(item =>
+          <Todo
+            key={item._id}
+            item={item}
+            toggle={this.props.toggle}
+            postTodo={this.props.postTodo}
+            delete={this.props.delete}
+          />
+          )}
+        </List>
+        <div className="col-xs-offset-2 col-xs-8 around-xs">
+          <Toggles />
+        </div>
+      </div>
     );
   }
 }
