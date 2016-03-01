@@ -30,7 +30,6 @@ class Todo extends Component {
   delete(e) {
     e.preventDefault();
     this.props.delete(this.props.item._id);
-    console.log(this.props.item._id);
   }
 
   render() {

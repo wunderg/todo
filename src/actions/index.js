@@ -43,6 +43,7 @@ export function deleteTodo(id) {
   const request = axios.delete(`api/task/${id}`);
   return {
     type: DELETE_TODO,
-    payload: request
+    payload: request,
+    id
   };
 }

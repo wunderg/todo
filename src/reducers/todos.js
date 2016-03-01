@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, FETCH_TODOS } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, FETCH_TODOS, DELETE_TODO } from '../actions';
 import todo from './todo';
 
 export default (state = [], action) => {
@@ -9,6 +9,8 @@ export default (state = [], action) => {
       return state.map(item => todo(item, action));
     case FETCH_TODOS:
       return todo(undefined, action);
+    case DELETE_TODO:
+      return state.filter(item => todo(item, action));
     default:
       return state;
   }
