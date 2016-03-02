@@ -48,3 +48,17 @@ export function showAll(todos) {
     payload: todos
   };
 }
+
+export function showCompleted(todos) {
+  return {
+    type: ACTIONS.SHOW_COMPLETED,
+    payload: todos
+  };
+}
+
+export function showInProgress(todos) {
+  return {
+    type: ACTIONS.SHOW_IN_PROGRESS,
+    payload: todos
+  };
+}

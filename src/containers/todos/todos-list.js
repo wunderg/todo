@@ -12,6 +12,16 @@ const style = {
 class Todos extends Component {
   constructor(props) {
     super(props);
+    this.showAll = this.showAll.bind(this);
+    this.showCompleted = this.showCompleted.bind(this);
+  }
+
+  showAll() {
+    this.props.showAll(this.props.todos);
+  }
+
+  showCompleted() {
+    this.props.showCompleted(this.props.todos);
   }
 
   render() {
@@ -29,7 +39,11 @@ class Todos extends Component {
           )}
         </List>
         <div className="col-xs-offset-2 col-xs-8 around-xs">
-          <Toggles visible={this.props.visible} />
+          <Toggles
+            visible={this.props.visible}
+            showAll={this.showAll}
+            showCompleted={this.showCompleted}
+          />
         </div>
       </div>
     );
@@ -41,7 +55,9 @@ Todos.propTypes = {
   toggle: PropTypes.func,
   postTodo: PropTypes.func,
   delete: PropTypes.func,
-  visible: PropTypes.object
+  visible: PropTypes.object,
+  showAll: PropTypes.func,
+  showCompleted: PropTypes.func
 };
 
 export default Todos;

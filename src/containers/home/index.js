@@ -1,7 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo, toggleTodo, fetchTodos, postTodo, deleteTodo, showAll } from '../../actions';
+import {
+  addTodo,
+  toggleTodo,
+  fetchTodos,
+  postTodo,
+  deleteTodo,
+  showAll,
+  showCompleted
+} from '../../actions';
 
 import TodoList from '../todos/todos-list';
 import TextInput from '../text-input';
@@ -46,6 +54,7 @@ class Home extends Component {
                 toggle={this.props.toggleTodo}
                 delete={this.props.deleteTodo}
                 showAll={this.props.showAll}
+                showCompleted={this.props.showCompleted}
               />
             </div>
           </div>
@@ -72,7 +81,8 @@ function mapDispatchToProps(dispatch) {
       fetchTodos,
       postTodo,
       deleteTodo,
-      showAll
+      showAll,
+      showCompleted
     }, dispatch);
 }
 
@@ -84,7 +94,8 @@ Home.propTypes = {
   fetchTodos: PropTypes.func,
   deleteTodo: PropTypes.func,
   showAll: PropTypes.func,
-  visible: PropTypes.object
+  visible: PropTypes.object,
+  showCompleted: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -8,24 +8,27 @@ const styles = {
   }
 };
 
-const Toggles = ({ visible }) => (
-  <div style={styles.block}>
-    <Toggle
-      label="Show All"
-      toggled={visible.all}
-      style={styles.toggle}
-    />
-    <Toggle
-      label="Show Completed"
-      toggled={visible.comp}
-      style={styles.toggle}
-    />
-    <Toggle
-      label="Show In-Progress"
-      toggled={visible.prog}
-      style={styles.toggle}
-    />
-  </div>
-);
+const Toggles = ({ visible, showAll, showCompleted }) => (
+    <div style={styles.block}>
+      <Toggle
+        label="Show All"
+        onClick={showAll}
+        toggled={visible.all}
+        style={styles.toggle}
+      />
+      <Toggle
+        label="Show Completed"
+        toggled={visible.comp}
+        onClick={showCompleted}
+        style={styles.toggle}
+      />
+      <Toggle
+        label="Show In-Progress"
+        toggled={visible.prog}
+        style={styles.toggle}
+      />
+    </div>
+  );
+
 
 export default Toggles;
