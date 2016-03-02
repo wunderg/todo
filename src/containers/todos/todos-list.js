@@ -44,6 +44,14 @@ class Todos extends Component {
       );
     return (
       <div className="">
+        <div className="col-xs-offset-2 col-xs-8 around-xs">
+          <Toggles
+            visible={this.props.visible}
+            showAll={this.showAll}
+            showCompleted={this.showCompleted}
+            showInProgress={this.showInProgress}
+          />
+        </div>
         <List subheader="TODO LIST" zDepth={1} style={style}>
           <ReactCSSTransitionGroup
             transitionName="smooth"
@@ -55,14 +63,6 @@ class Todos extends Component {
             {todos}
           </ReactCSSTransitionGroup>
         </List>
-        <div className="col-xs-offset-2 col-xs-8 around-xs">
-          <Toggles
-            visible={this.props.visible}
-            showAll={this.showAll}
-            showCompleted={this.showCompleted}
-            showInProgress={this.showInProgress}
-          />
-        </div>
       </div>
     );
   }
