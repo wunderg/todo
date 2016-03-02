@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import styles from './todos.css';
 
 import Todo from './todo-item';
 import Toggles from './toggles';
@@ -32,18 +35,28 @@ class Todos extends Component {
   }
 
   render() {
+    console.log(styles);
+    const todos = this.props.visible.todos.map(item =>
+      <Todo
+        key={item._id}
+        item={item}
+        toggle={this.props.toggle}
+        postTodo={this.props.postTodo}
+        delete={this.props.delete}
+      />
+      );
     return (
       <div className="">
         <List subheader="TODO LIST" zDepth={1} style={style}>
-          {this.props.visible.todos.map(item =>
-          <Todo
-            key={item._id}
-            item={item}
-            toggle={this.props.toggle}
-            postTodo={this.props.postTodo}
-            delete={this.props.delete}
-          />
-          )}
+          <ReactCSSTransitionGroup
+            transitionName="smooth"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
+            transitionAppearTimeout={100}
+            transitionAppear={true}
+          >
+            {todos}
+          </ReactCSSTransitionGroup>
         </List>
         <div className="col-xs-offset-2 col-xs-8 around-xs">
           <Toggles
