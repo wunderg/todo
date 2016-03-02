@@ -10,6 +10,7 @@ import List from 'material-ui/lib/lists/list';
 
 const style = {
   marginTop: 10,
+  // maxWidth: 450
 };
 
 class Todos extends Component {
@@ -43,7 +44,7 @@ class Todos extends Component {
       />
       );
     return (
-      <div className="xs-center">
+      <div className="">
         <div className="">
           <Toggles
             visible={this.props.visible}
@@ -52,17 +53,23 @@ class Todos extends Component {
             showInProgress={this.showInProgress}
           />
         </div>
-        <List subheader="MY AWESOME TODO LIST" zDepth={1} style={style}>
-          <ReactCSSTransitionGroup
-            transitionName="smooth"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}
-            transitionAppearTimeout={100}
-            transitionAppear={true}
-          >
-            {todos}
-          </ReactCSSTransitionGroup>
-        </List>
+
+        <div className="row around-lg around-md">
+          <div className="col-xs 12 col-lg-5 col-md-6">
+
+            <List subheader="MY AWESOME TODO LIST" zDepth={1} style={style}>
+              <ReactCSSTransitionGroup
+                transitionName="smooth"
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}
+                transitionAppearTimeout={100}
+                transitionAppear={true}
+              >
+                {todos}
+              </ReactCSSTransitionGroup>
+            </List>
+          </div>
+        </div>
       </div>
     );
   }

@@ -46,7 +46,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="row around-xs">
-          <div className="col-xs-12">
+          <div className="col-xs-12 col-lg-12 around-xs">
               <TodoList
                 todos={this.props.todos}
                 visible={this.props.visible}

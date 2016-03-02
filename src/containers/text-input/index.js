@@ -4,7 +4,8 @@ import FlatButton from 'material-ui/lib/flat-button';
 
 
 const style = {
-  maxWidth: 300
+  maxWidth: 500,
+  width: 400
 };
 
 class TextInput extends Component {

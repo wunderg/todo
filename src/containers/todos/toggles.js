@@ -7,32 +7,38 @@ const styles = {
     marginTop: 10,
   },
   general: {
-    // maxWidth: 450
+    maxWidth: '85%'
   }
 
 };
 
 const Toggles = ({ visible, showAll, showCompleted, showInProgress }) => (
-    <div style={styles.general}>
-      <Toggle
-        label="Show All"
-        onClick={showAll}
-        toggled={visible.all}
-        style={styles.toggle}
-      />
-      <Toggle
-        label="Show Completed"
-        toggled={visible.comp}
-        onClick={showCompleted}
-        style={styles.toggle}
-      />
-      <Toggle
-        label="Show In-Progress"
-        toggled={visible.prog}
-        style={styles.toggle}
-        onClick={showInProgress}
-      />
+  <div className="row around-xs center-md around-lg" style={styles.general}>
+    <div className="col-xs-10 col-lg-1 col-md-3 col-md-offset-2 col-lg-offset-2">
+        <Toggle
+          label="All"
+          onClick={showAll}
+          toggled={visible.all}
+          style={styles.toggle}
+        />
     </div>
+    <div className="col-xs-10 col-lg-2 col-md-3">
+        <Toggle
+          label="Completed"
+          toggled={visible.comp}
+          onClick={showCompleted}
+          style={styles.toggle}
+        />
+    </div>
+    <div className="col-xs-10 col-lg-2 col-md-3">
+        <Toggle
+          label="In-Progress"
+          toggled={visible.prog}
+          style={styles.toggle}
+          onClick={showInProgress}
+        />
+    </div>
+  </div>
   );
 
 
