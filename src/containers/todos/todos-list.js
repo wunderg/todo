@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import styles from './todos.css';
+import './todos.css';
 
 import Todo from './todo-item';
 import Toggles from './toggles';
@@ -25,17 +25,14 @@ class Todos extends Component {
   }
 
   showCompleted() {
-    console.log(this);
     this.props.showCompleted(this.props.todos);
   }
 
   showInProgress() {
-    console.log(this);
     this.props.showInProgress(this.props.todos);
   }
 
   render() {
-    console.log(styles);
     const todos = this.props.visible.todos.map(item =>
       <Todo
         key={item._id}
