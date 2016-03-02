@@ -8,7 +8,7 @@ const styles = {
   }
 };
 
-const Toggles = ({ visible, showAll, showCompleted }) => (
+const Toggles = ({ visible, showAll, showCompleted, showInProgress }) => (
     <div style={styles.block}>
       <Toggle
         label="Show All"
@@ -26,6 +26,7 @@ const Toggles = ({ visible, showAll, showCompleted }) => (
         label="Show In-Progress"
         toggled={visible.prog}
         style={styles.toggle}
+        onClick={showInProgress}
       />
     </div>
   );

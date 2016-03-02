@@ -9,6 +9,8 @@ export default (state, action)  => {
     }
     case 'SHOW_COMPLETED':
       return state.completed
+    case 'SHOW_IN_PROGRESS':
+      return !state.completed
     case 'TOGGLE_TODO':
      return state._id === action._id ? {...state, completed: !state.completed} : state;
     case 'FETCH_TODOS':

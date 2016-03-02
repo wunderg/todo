@@ -10,10 +10,11 @@ const style = {
 };
 
 class Todos extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super(...arguments);
     this.showAll = this.showAll.bind(this);
     this.showCompleted = this.showCompleted.bind(this);
+    this.showInProgress = this.showInProgress.bind(this);
   }
 
   showAll() {
@@ -21,7 +22,13 @@ class Todos extends Component {
   }
 
   showCompleted() {
+    console.log(this);
     this.props.showCompleted(this.props.todos);
+  }
+
+  showInProgress() {
+    console.log(this);
+    this.props.showInProgress(this.props.todos);
   }
 
   render() {
@@ -58,7 +65,8 @@ Todos.propTypes = {
   delete: PropTypes.func,
   visible: PropTypes.object,
   showAll: PropTypes.func,
-  showCompleted: PropTypes.func
+  showCompleted: PropTypes.func,
+  showInProgress: PropTypes.func
 };
 
 export default Todos;

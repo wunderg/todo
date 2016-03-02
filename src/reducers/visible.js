@@ -19,9 +19,9 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_TODOS:
       return {...state, todos: action.payload.data}
     case SHOW_COMPLETED:
-      return {...state, all: false, prog: false, comp: true, todos: state.todos.filter(item => todo(item, action))};
+      return {...state, all: false, prog: false, comp: true, todos: action.payload.filter(item => todo(item, action))};
     case SHOW_IN_PROGRESS:
-      return state;
+      return {...state, all: false, prog: true, comp: false, todos: action.payload.filter(item => todo(item, action))};
     case TOGGLE_TODO:
       return {...state, todos: state.todos.map(item => todo(item, action))};
     case ADD_TODO:
