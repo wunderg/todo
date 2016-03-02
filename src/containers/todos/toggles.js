@@ -5,11 +5,15 @@ const styles = {
   toggle: {
     marginBottom: 16,
     marginTop: 10,
+  },
+  general: {
+    // maxWidth: 450
   }
+
 };
 
 const Toggles = ({ visible, showAll, showCompleted, showInProgress }) => (
-    <div style={styles.block}>
+    <div style={styles.general}>
       <Toggle
         label="Show All"
         onClick={showAll}

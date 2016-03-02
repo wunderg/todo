@@ -2,6 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/lib/text-field';
 import FlatButton from 'material-ui/lib/flat-button';
 
+
+const style = {
+  maxWidth: 300
+};
+
 class TextInput extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +32,7 @@ class TextInput extends Component {
     return (
       <div className="">
         <TextField
+          style={style}
           floatingLabelText="Type in Here"
           onChange={this.handleChange}
           value={this.state.text}

@@ -18,9 +18,11 @@ import TextInput from '../text-input';
 // import Colors from 'material-ui/lib/styles/colors';
 
 // const style = {
-//   margin: 12,
-//   paddingTop: 10,
-//   color: Colors.blue200
+//   textInput: {},
+//   toggles: {},
+//   list: {
+//     maxWidth: 350
+//   }
 // };
 
 class Home extends Component {
@@ -36,18 +38,15 @@ class Home extends Component {
     return (
       <div className="wrap container-fluid">
         <div className="row around-xs">
-          <div className="col-xs-9 center-xs">
-            <div className="box">
+          <div className="col-xs-12 center-xs">
               <TextInput
                 addTodo={this.props.addTodo}
                 postTodo={this.props.postTodo}
               />
-            </div>
           </div>
         </div>
         <div className="row around-xs">
-          <div className="col-xs-5">
-            <div className="box">
+          <div className="col-xs-12">
               <TodoList
                 todos={this.props.todos}
                 visible={this.props.visible}
@@ -58,7 +57,6 @@ class Home extends Component {
                 showCompleted={this.props.showCompleted}
                 showInProgress={this.props.showInProgress}
               />
-            </div>
           </div>
         </div>
       </div>

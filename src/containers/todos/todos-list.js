@@ -9,7 +9,7 @@ import Toggles from './toggles';
 import List from 'material-ui/lib/lists/list';
 
 const style = {
-  marginTop: 10
+  marginTop: 10,
 };
 
 class Todos extends Component {
@@ -43,8 +43,8 @@ class Todos extends Component {
       />
       );
     return (
-      <div className="">
-        <div className="col-xs-offset-2 col-xs-8 around-xs">
+      <div className="xs-center">
+        <div className="">
           <Toggles
             visible={this.props.visible}
             showAll={this.showAll}
@@ -52,7 +52,7 @@ class Todos extends Component {
             showInProgress={this.showInProgress}
           />
         </div>
-        <List subheader="TODO LIST" zDepth={1} style={style}>
+        <List subheader="MY AWESOME TODO LIST" zDepth={1} style={style}>
           <ReactCSSTransitionGroup
             transitionName="smooth"
             transitionEnterTimeout={300}
