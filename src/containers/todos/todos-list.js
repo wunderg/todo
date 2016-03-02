@@ -43,6 +43,7 @@ class Todos extends Component {
             visible={this.props.visible}
             showAll={this.showAll}
             showCompleted={this.showCompleted}
+            showInProgress={this.showInProgress}
           />
         </div>
       </div>

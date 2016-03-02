@@ -8,7 +8,8 @@ import {
   postTodo,
   deleteTodo,
   showAll,
-  showCompleted
+  showCompleted,
+  showInProgress
 } from '../../actions';
 
 import TodoList from '../todos/todos-list';
@@ -55,6 +56,7 @@ class Home extends Component {
                 delete={this.props.deleteTodo}
                 showAll={this.props.showAll}
                 showCompleted={this.props.showCompleted}
+                showInProgress={this.props.showInProgress}
               />
             </div>
           </div>
@@ -82,7 +84,8 @@ function mapDispatchToProps(dispatch) {
       postTodo,
       deleteTodo,
       showAll,
-      showCompleted
+      showCompleted,
+      showInProgress
     }, dispatch);
 }
 
@@ -95,7 +98,8 @@ Home.propTypes = {
   deleteTodo: PropTypes.func,
   showAll: PropTypes.func,
   visible: PropTypes.object,
-  showCompleted: PropTypes.func
+  showCompleted: PropTypes.func,
+  showInProgress: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
