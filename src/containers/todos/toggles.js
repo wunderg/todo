@@ -13,8 +13,8 @@ const styles = {
 };
 
 const Toggles = ({ visible, showAll, showCompleted, showInProgress }) => (
-  <div className="row around-xs center-md center-lg" style={styles.general}>
-    <div className="col-xs-10 col-lg-1 col-md-3 col-md-offset-2 col-lg-offset-2">
+  <div className="row around-xs center-md center-lg col-xs-offset-1" style={styles.general}>
+    <div className="col-xs-10 col-lg-1 col-md-3">
         <Toggle
           label="All"
           onClick={showAll}

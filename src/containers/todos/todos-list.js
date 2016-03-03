@@ -54,8 +54,8 @@ class Todos extends Component {
           />
         </div>
 
-        <div className="row around-lg around-md">
-          <div className="col-xs 12 col-lg-5 col-md-7">
+        <div className="row around-lg around-md col">
+          <div className="col-xs 12 col-lg-5 col-md-8">
 
             <List subheader="MY AWESOME TODO LIST" zDepth={1} style={style}>
               <ReactCSSTransitionGroup
