@@ -11,7 +11,6 @@ import App from './containers/app';
 import Home from './containers/home';
 import About from './containers/about';
 
-
 const store = storeConfig();
 
 render(
